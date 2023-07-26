@@ -4,18 +4,18 @@
 
         <div class="box">
             <h3>quick links</h3>
-            <a href="home.php">home</a>
-            <a href="about.php">about</a>
-            <a href="contact.php">contact</a>
-            <a href="shop.php">shop</a>
+            <a href="home.php"><i class="fas fa-star"></i>home</a>
+            <a href="about.php"><i class="fas fa-star"></i>about</a>
+            <a href="contact.php"><i class="fas fa-star"></i>contact</a>
+            <a href="shop.php"><i class="fas fa-star"></i>shop</a>
         </div>
 
         <div class="box">
-            <h3>extra links</h3>
-            <a href="login.php">login</a>
-            <a href="register.php">register</a>
-            <a href="orders.php">my orders</a>
-            <a href="cart.php">my cart</a>
+            <h3>quick links</h3>
+            <a href="login.php"><i class="fas fa-star"></i>login</a>
+            <a href="register.php"><i class="fas fa-star"></i>register</a>
+            <a href="orders.php"><i class="fas fa-star"></i>my orders</a>
+            <a href="cart.php"><i class="fas fa-star"></i>my cart</a>
         </div>
 
         <div class="box">
@@ -31,6 +31,7 @@
             <h3>follow us</h3>
             <a href="https://www.facebook.com/profile.php?id=100068090454400"><i class="fab fa-facebook-f"></i>facebook MW-CB</a>
             <a href="https://www.facebook.com/profile.php?id=100064336291839"><i class="fab fa-facebook-f"></i>facebook MW-SB</a>
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i>instagram</a>
         </div>
 
     </div>

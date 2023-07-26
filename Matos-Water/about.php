@@ -74,7 +74,7 @@ if(!isset($user_id)){
 
         <div class="content">
             <h3>who we are?</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum odit voluptatum alias sed est in magni nihil nisi deleniti nostrum.</p>
+            <p>We are the first water equipment and supplies trading that offer extensive supplies here in Sta. Maria, Bulacan and Bagumbong, Caloocan City.</p>
             <a href="#reviews" class="btn">clients reviews</a>
         </div>
 
@@ -90,7 +90,7 @@ if(!isset($user_id)){
 
         <div class="box">
             <img src="images/pic-1.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia animi consequatur nostrum cumque itaque ducimus, iure expedita voluptates. Minima, minus.</p>
+            <p>Good Item</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -102,8 +102,8 @@ if(!isset($user_id)){
         </div>
 
         <div class="box">
-            <img src="images/pic-2.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia animi consequatur nostrum cumque itaque ducimus, iure expedita voluptates. Minima, minus.</p>
+            <img src="images/pic-1.png" alt="">
+            <p>Good Item</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -115,8 +115,8 @@ if(!isset($user_id)){
         </div>
 
         <div class="box">
-            <img src="images/pic-3.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia animi consequatur nostrum cumque itaque ducimus, iure expedita voluptates. Minima, minus.</p>
+            <img src="images/pic-1.png" alt="">
+            <p>Good Item</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -128,8 +128,8 @@ if(!isset($user_id)){
         </div>
 
         <div class="box">
-            <img src="images/pic-4.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia animi consequatur nostrum cumque itaque ducimus, iure expedita voluptates. Minima, minus.</p>
+            <img src="images/pic-1.png" alt="">
+            <p>Good Item</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -141,8 +141,8 @@ if(!isset($user_id)){
         </div>
 
         <div class="box">
-            <img src="images/pic-5.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia animi consequatur nostrum cumque itaque ducimus, iure expedita voluptates. Minima, minus.</p>
+            <img src="images/pic-1.png" alt="">
+            <p>Good Item</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -154,8 +154,8 @@ if(!isset($user_id)){
         </div>
 
         <div class="box">
-            <img src="images/pic-6.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia animi consequatur nostrum cumque itaque ducimus, iure expedita voluptates. Minima, minus.</p>
+            <img src="images/pic-1.png" alt="">
+            <p>Good Item</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>

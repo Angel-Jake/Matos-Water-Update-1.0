@@ -64,16 +64,25 @@ if(isset($message)){
 <section class="form-container">
 
    <form action="" method="post">
-      <h3>register now</h3>
+      <h3>💦 register now 💦</h3>
       <input type="text" name="name" class="box" placeholder="enter your username" required>
       <input type="email" name="email" class="box" placeholder="enter your email" required>
       <input type="password" name="pass" class="box" placeholder="enter your password" required>
       <input type="password" name="cpass" class="box" placeholder="confirm your password" required>
+      <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png"required>
       <input type="submit" class="btn" name="submit" value="register now">
       <p>already have an account? <a href="login.php">login now</a></p>
    </form>
 
 </section>
+
+<div class="video-background">
+   
+      <video autoplay loop muted plays-inline class="back-video">
+         <source src="images/login-BGW.mp4" type="video/mp4">
+      </video>
+
+</div>
 
 </body>
 </html>

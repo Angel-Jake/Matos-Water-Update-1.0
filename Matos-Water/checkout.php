@@ -16,7 +16,8 @@ if(isset($_POST['order'])){
     $number = mysqli_real_escape_string($conn, $_POST['number']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $method = mysqli_real_escape_string($conn, $_POST['method']);
-    $address = mysqli_real_escape_string($conn, 'flat no. '. $_POST['flat'].', '. $_POST['street'].', '. $_POST['city'].', '. $_POST['country'].' - '. $_POST['pin_code']);
+    $address = mysqli_real_escape_string($conn, $_POST['street'].', '. $_POST['barangay'].', '. $_POST['city']);
+    $gcash = mysqli_real_escape_string($conn, $_POST['gcash']);
     $placed_on = date('d-M-Y');
 
     $cart_total = 0;
@@ -33,14 +34,14 @@ if(isset($_POST['order'])){
 
     $total_products = implode(', ',$cart_products);
 
-    $order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE name = '$name' AND number = '$number' AND email = '$email' AND method = '$method' AND address = '$address' AND total_products = '$total_products' AND total_price = '$cart_total'") or die('query failed');
+    $order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE name = '$name' AND number = '$number' AND email = '$email' AND method = '$method' AND address = '$address' AND gcash = '$gcash' AND total_products = '$total_products' AND total_price = '$cart_total'") or die('query failed');
 
     if($cart_total == 0){
         $message[] = 'your cart is empty!';
     }elseif(mysqli_num_rows($order_query) > 0){
         $message[] = 'order placed already!';
     }else{
-        mysqli_query($conn, "INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price, placed_on) VALUES('$user_id', '$name', '$number', '$email', '$method', '$address', '$total_products', '$cart_total', '$placed_on')") or die('query failed');
+        mysqli_query($conn, "INSERT INTO `orders`(user_id, name, number, email, method, address, gcash, total_products, total_price, placed_on) VALUES('$user_id', '$name', '$number', '$email', '$method', '$address', '$gcash', '$total_products', '$cart_total', '$placed_on')") or die('query failed');
         mysqli_query($conn, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
         $message[] = 'order placed successfully!';
     }
@@ -99,44 +100,45 @@ if(isset($_POST['order'])){
 
         <div class="flex">
             <div class="inputBox">
-                <span>your name :</span>
+                <span>Name :</span>
                 <input type="text" name="name" placeholder="enter your name">
             </div>
             <div class="inputBox">
-                <span>your number :</span>
+                <span>Number :</span>
                 <input type="number" name="number" min="0" placeholder="enter your number">
             </div>
             <div class="inputBox">
-                <span>your email :</span>
+                <span>Email :</span>
                 <input type="email" name="email" placeholder="enter your email">
             </div>
             <div class="inputBox">
-                <span>payment method :</span>
+                <span>Payment Method :</span>
                 <select name="method">
                     <option value="cash on delivery">cash on delivery</option>
-                    <option value="Gcash">Gcash</option>
-                    <option value="Bank Transfer">Bank Transfer</option>
+                    <option value="Gcash">Gcash(delivery)</option>
+                    <option value="Bank Transfer">Gcash(pick-up)</option>
 
                 </select>
             </div>
             <div class="inputBox">
-                <span>address line :</span>
-                <input type="text" name="street" placeholder="e.g. house no. &street name">
+                <span>Address :</span>
+                <input type="text" name="street" placeholder="house no. & street Name">
             </div>
             <div class="inputBox">
-                <span>city :</span>
+                <span>City :</span>
                 <input type="text" name="city" placeholder="e.g. manila">
             </div>
             <div class="inputBox">
-                <span>barangay :</span>
+                <span>Barangay :</span>
                 <input type="text" name="barangay" placeholder="e.g. barangay">
             </div>
             <div class="inputBox">
-                <span>zip code :</span>
-                <input type="number" min="0" name="zip_code" placeholder="e.g. 123456">
+                <span>Gcash Reference No. :</span>
+                <input type="number" min="0" name="gcash" placeholder="e.g. 123456">
             </div>
         </div>
 
+        <a href="gcash.php" class="btn">Gcash</a>
         <input type="submit" name="order" value="order now" class="btn">
 
     </form>

@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
 
 :root{
-   --pink:#00ccfff1;
+   --light-blue:#00ccfff1;
    --red:#cc0000;
-   --orange:#006eff;
+   --blue:#006eff;
    --black:#333;
    --white:#fff;
    --light-color:#666;
    --light-white:#ccc;
    --light-bg:#f5f5f5;
-   --border:.2rem solid var(--black);
+   --border:.2rem solid var(--white);
    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
 }
 
@@ -23,7 +23,7 @@
 }
 
 *::selection{
-   background-color: var(--pink);
+   background-color: var(--light-blue);
    color:var(--white);
 }
 
@@ -37,7 +37,7 @@
 }
 
 *::-webkit-scrollbar-thumb{
-   background-color: var(--pink);
+   background-color: var(--light-blue);
 }
 
 html{
@@ -47,8 +47,13 @@ html{
    scroll-padding-top: 6.5rem;
 }
 
+
 body{
-   background: var(--light-bg);
+   background: url(../images/home-bg3.png) no-repeat;
+   background-size: cover;
+   background-position: center;
+   background-position-y: center;
+	font-family: arial;
 }
 
 section{
@@ -57,8 +62,9 @@ section{
 
 .title{
    text-align: center;
-   margin-bottom: 2rem;
-   color:var(--black);
+   margin-bottom: 3rem;
+   margin-top: 2rem;
+   color:var(--white);
    text-transform: uppercase;
    font-size: 4rem;
 }
@@ -70,6 +76,7 @@ section{
    border-radius: .5rem;
    margin-top: 1rem;
    font-size: 1.8rem;
+   background-color: rgba(0,0,0,.3);
    color:var(--white);
    cursor: pointer;
    padding:1rem 3rem;
@@ -112,13 +119,13 @@ section{
    border:var(--border);
    box-shadow: var(--box-shadow);
    text-align: center;
-   background-color: var(--white);
+   background-color: rgba(0,0,0,.3);
    border-radius: .5rem;
    text-transform: capitalize;
 }
 
 .btn{
-   background-color: var(--pink);
+   background-color: var(--light-blue);
 }
 
 .delete-btn{
@@ -126,7 +133,7 @@ section{
 }
 
 .option-btn{
-   background-color: var(--orange);
+   background-color: var(--blue);
 }
 
 .btn:hover,
@@ -144,19 +151,20 @@ section{
 .header{
    position: sticky;
    top:0; left:0; right:0;
+   background-color: rgba(0, 0, 0, 0);
    z-index: 1000;
-   background-color: var(--white);
-   box-shadow: var(--box-shadow);
 }
 
 .header .flex{
+   position: fixed;
+   top:0; left:0; right:0;
+   background:rgba(0,0,0,.5);
+   padding:.5rem 9%;
    display: flex;
    align-items: center;
    justify-content: space-between;
-   padding:2rem;
-   max-width: 1200px;
-   margin:0 auto;
-   position: relative;
+   z-index: 1000;
+   box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
 }
 
 .header .flex .account-box{
@@ -165,7 +173,7 @@ section{
    width: 33rem;
    border-radius: .5rem;
    box-shadow: var(--box-shadow);
-   background-color: var(--white);
+   background-color: rgba(0,0,0,.3);
    padding:2rem;
    text-align: center;
    border:var(--border);
@@ -180,22 +188,22 @@ section{
 .header .flex .account-box p{
    padding-bottom: 1rem;
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--white);
    line-height: 1.5;
 }
 
 .header .flex .account-box p span{
-   color:var(--pink);
+   color:var(--light-blue);
 }
 
 .header .flex .account-box div{
    font-size: 2rem;
    margin-top: 2rem;
-   color:var(--light-color);
+   color:var(--white);
 }
 
 .header .flex .account-box div a{
-   color:var(--orange);
+   color:var(--blue);
 }
 
 .header .flex .account-box div a:hover{
@@ -206,31 +214,54 @@ section{
    font-size: 2.5rem;
    margin-left: 1.7rem;
    cursor: pointer;
-   color:var(--black);
+   color:var(--light-blue);
 }
 
 .header .flex .icons div:hover{
-   color:var(--pink);
+   color:var(--white);
 }
 
 .header .flex .navbar a{
    margin:0 1rem;
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--light-blue);
 }
 
 .header .flex .navbar a:hover{
    text-decoration: underline;
-   color:var(--pink);
+   color:var(--white);
 }
 
 .header .flex .logo{
    font-size: 2.5rem;
-   color:var(--black);
+   color:var(--white);
 }
 
 .header .flex .logo span{
-   color:var(--pink);
+   color:var(--light-blue);
+}
+
+.search-form form{
+   max-width: 1200px;
+   margin:0 auto;
+   display: flex;
+   align-items: center;
+   gap:1rem;
+}
+
+.search-form form .box{
+   width: 100%;
+   border:var(--border);
+   background-color: rgba(255, 255, 255, 0.1);
+   box-shadow: var(--white);
+   padding:1.2rem 1.4rem;
+   font-size: 1.8rem;
+   color: var(--white);
+   border-radius: .5rem;
+}
+
+.search-form form .btn{
+   margin-top: 0;
 }
 
 #menu-btn{
@@ -240,16 +271,17 @@ section{
 .dashboard .box-container{
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
-   gap:1.5rem;
+   gap:5rem;
    align-items: flex-start;
    max-width: 1200px;
    margin: 0 auto;
 }
 
+
 .dashboard .box-container .box{
    text-align: center;
    border:var(--border);
-   background-color: var(--white);
+   background-color: rgba(0,0,0,.3);
    box-shadow: var(--box-shadow);
    padding:2rem;
    border-radius: .5rem;
@@ -257,14 +289,14 @@ section{
 
 .dashboard .box-container .box h3{
    font-size: 4.5rem;
-   color:var(--black);
+   color:var(--white);
 }
 
 .dashboard .box-container .box p{
    padding:1.5rem;
    border-radius: .5rem;
-   background-color: var(--light-bg);
-   color:var(--light-color);
+   background-color: rgba(0,0,0,.3);
+   color:var(--white);
    border:var(--border);
    margin-top: 2rem;
    font-size: 2rem;
@@ -273,7 +305,7 @@ section{
 .add-products form{
    max-width: 50rem;
    border-radius: .5rem;
-   background-color: var(--white);
+   background-color: rgba(0,0,0,.3);
    border:var(--border);
    padding:2rem;
    text-align: center;
@@ -284,7 +316,7 @@ section{
 .add-products form h3{
    font-size: 2.5rem;
    text-transform: uppercase;
-   color:var(--black);
+   color:var(--white);
    margin-bottom: 1rem;
 }
 
@@ -292,9 +324,9 @@ section{
    width: 100%;
    margin:1rem 0;
    font-size: 1.8rem;
-   color:var(--black);
+   color:var(--white);
    border-radius: .5rem;
-   background-color: var(--light-bg);
+   background-color: rgba(0,0,0,.3);
    padding:1.2rem 1.4rem;
    border:var(--border);
 }
@@ -318,7 +350,7 @@ section{
    text-align: center;
    padding:2rem;
    border:var(--border);
-   background-color: var(--white);
+   background-color: rgba(0,0,0,.3);
    box-shadow: var(--box-shadow);
    border-radius: .5rem;
    position: relative;
@@ -327,12 +359,23 @@ section{
 .show-products .box-container .box .image{
    height: 30rem;
    margin-bottom: .5rem;
+   object-fit: cover;
 }
 
 .show-products .box-container .box .price{
-   background-color: var(--pink);
+   background-color: var(--light-blue);
    position: absolute;
    top:1rem; left:1rem;
+   border-radius: .5rem;
+   color:var(--white);
+   padding:1rem;
+   font-size: 2rem;
+}
+
+.show-products .box-container .box .stock{
+   background-color: var(--light-blue);
+   position: absolute;
+   top:1rem; right:1rem;
    border-radius: .5rem;
    color:var(--white);
    padding:1rem;
@@ -342,12 +385,12 @@ section{
 .show-products .box-container .box .name{
    margin:1rem 0;
    font-size: 2rem;
-   color:var(--black);
+   color:var(--white);
 }
 
 .show-products .box-container .box .details{
    line-height: 1.5;
-   color:var(--light-color);
+   color:var(--white);
    font-size: 1.5rem;
    padding:.5rem 0;
 }
@@ -355,7 +398,7 @@ section{
 .update-product form{
    max-width: 50rem;
    border-radius: .5rem;
-   background-color: var(--white);
+   background-color: rgba(0,0,0,.3);
    border:var(--border);
    padding:2rem;
    text-align: center;
@@ -366,7 +409,7 @@ section{
 .update-product form h3{
    font-size: 2.5rem;
    text-transform: uppercase;
-   color:var(--black);
+   color:var(--white);
    margin-bottom: 1rem;
 }
 
@@ -374,9 +417,9 @@ section{
    width: 100%;
    margin:1rem 0;
    font-size: 1.8rem;
-   color:var(--black);
+   color:var(--white);
    border-radius: .5rem;
-   background-color: var(--light-bg);
+   background-color: rgba(0,0,0,.3);
    padding:1.2rem 1.4rem;
    border:var(--border);
 }
@@ -405,7 +448,7 @@ section{
 .placed-orders .box-container .box{
    padding:2rem;
    border:var(--border);
-   background-color: var(--white);
+   background-color: rgba(0,0,0,.3);
    box-shadow: var(--box-shadow);
    border-radius: .5rem;
 }
@@ -413,11 +456,11 @@ section{
 .placed-orders .box-container .box p{
    margin-bottom: 1rem;
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--white);
 }
 
 .placed-orders .box-container .box p span{
-   color:var(--pink);
+   color:var(--light-blue);
 }
 
 .placed-orders .box-container .box form{
@@ -427,10 +470,10 @@ section{
 
 .placed-orders .box-container .box form select{
    width: 100%;
-   border:var(--border);
+   background: rgba(0,0,0,.5);
    padding:1.2rem 1.4rem;
    font-size: 1.8rem;
-   color:var(--black);
+   color:var(--white);
    border:var(--border);
    border-radius: .5rem;
    margin:.5rem 0;
@@ -449,7 +492,7 @@ section{
 .users .box-container .box{
    padding:2rem;
    border:var(--border);
-   background-color: var(--white);
+   background-color: rgba(0,0,0,.3);
    box-shadow: var(--box-shadow);
    border-radius: .5rem;
    text-align: center;
@@ -457,13 +500,13 @@ section{
 
 .users .box-container .box p{
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--white);
    margin-bottom: 1rem;
    line-height: 1.5;
 }
 
 .users .box-container .box p span{
-   color:var(--pink);
+   color:var(--light-blue);
 }
 
 .users .box-container .box .delete-btn{
@@ -496,7 +539,7 @@ section{
 }
 
 .messages .box-container .box p span{
-   color:var(--pink);
+   color:var(--light-blue);
 }
 
 

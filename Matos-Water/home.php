@@ -6,6 +6,22 @@ session_start();
 
 $user_id = $_SESSION['user_id'];
 
+if(isset($_SESSION["user_id"]))  
+{  
+  if((time() - $_SESSION['last_login_timestamp']) > 900) // 900 = 15 * 60  
+   {  
+ header("location:logout.php");  
+   }  
+   else  
+   {  
+    $_SESSION['last_login_timestamp'] = time();   
+   }  
+}  
+else  
+{  
+  header('location:login.php');  
+}  
+
 if(!isset($user_id)){
    header('location:login.php');
 }
@@ -67,20 +83,12 @@ if(isset($_POST['add_to_cart'])){
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>home</title>
-
+   
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom admin css file link  -->
    <link rel="stylesheet" href="css/style.css">
-   <style>
-   body {
-      background-image: url('image-bg.jpg');
-      background-repeat: no-repeat;
-      background-attachment: fixed; 
-      background-size: 100% 100%;
-      }
-   </style>
 </head>
 <body>
    

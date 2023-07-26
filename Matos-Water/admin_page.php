@@ -6,6 +6,22 @@ session_start();
 
 $admin_id = $_SESSION['admin_id'];
 
+if(isset($_SESSION["admin_name"]))  
+{  
+  if((time() - $_SESSION['last_login_timestamp']) > 60) // 900 = 15 * 60  
+   {  
+ header("location:logout.php");  
+   }  
+   else  
+   {  
+    $_SESSION['last_login_timestamp'] = time();  
+   }  
+}  
+else  
+{  
+  header('location:login.php');  
+}  
+
 if(!isset($admin_id)){
    header('location:login.php');
 };
@@ -34,7 +50,7 @@ if(!isset($admin_id)){
 <section class="dashboard">
 
    <h1 class="title">dashboard</h1>
-
+   
    <div class="box-container">
 
       <div class="box">
@@ -45,7 +61,7 @@ if(!isset($admin_id)){
                $total_pendings += $fetch_pendings['total_price'];
             };
          ?>
-         <h3>$<?php echo $total_pendings; ?>/-</h3>
+         <h3>₱<?php echo $total_pendings; ?>/-</h3>
          <p>total pendings</p>
       </div>
 
@@ -57,8 +73,8 @@ if(!isset($admin_id)){
                $total_completes += $fetch_completes['total_price'];
             };
          ?>
-         <h3>$<?php echo $total_completes; ?>/-</h3>
-         <p>completed paymets</p>
+         <h3>₱<?php echo $total_completes; ?>/-</h3>
+         <p>completed payments</p>
       </div>
 
       <div class="box">

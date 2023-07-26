@@ -75,10 +75,13 @@ if(isset($_GET['delete'])){
 
 <section class="add-products">
 
+   <h1 class="title">Products</h1>
+
    <form action="" method="POST" enctype="multipart/form-data">
       <h3>add new product</h3>
       <input type="text" class="box" required placeholder="enter product name" name="name">
       <input type="number" min="0" class="box" required placeholder="enter product price" name="price">
+      <input type="number" name="stock" required placeholder="enter product stock" required maxlength="10" placeholder="total products available" min="0" max="9999999999" class="box">
       <textarea name="details" class="box" required placeholder="enter product details" cols="30" rows="10"></textarea>
       <input type="file" accept="image/jpg, image/jpeg, image/png" required class="box" name="image">
       <input type="submit" value="add product" name="add_product" class="btn">
@@ -96,7 +99,7 @@ if(isset($_GET['delete'])){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
       <div class="box">
-         <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
+         <div class="price">₱<?php echo $fetch_products['price']; ?>/-</div>
          <img class="image" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
          <div class="name"><?php echo $fetch_products['name']; ?></div>
          <div class="details"><?php echo $fetch_products['details']; ?></div>
@@ -126,6 +129,8 @@ if(isset($_GET['delete'])){
 
 
 <script src="js/admin_script.js"></script>
+
+
 
 </body>
 </html>

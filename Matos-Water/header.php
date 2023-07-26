@@ -9,6 +9,19 @@ if(isset($message)){
       ';
    }
 }
+
+if(!empty($update_image)){
+    if($update_image_size > 2000000){
+       $message[] = 'image is too large';
+    }else{
+       $image_update_query = mysqli_query($conn, "UPDATE `users` SET image = '$update_image' WHERE id = '$user_id'") or die('query failed');
+       if($image_update_query){
+          move_uploaded_file($update_image_tmp_name, $update_image_folder);
+       }
+       $message[] = 'image updated succssfully!';
+    }
+ }
+
 ?>
 
 <header class="header">
@@ -19,19 +32,19 @@ if(isset($message)){
 
         <nav class="navbar">
             <ul>
-                <li><a href="home.php">home</a></li>
-                <li><a href="#">pages +</a>
+                <li><a href="home.php"> home</a></li>
+                <li><a href="#"> pages ▼</a>
                     <ul>
-                        <li><a href="about.php">about</a></li>
-                        <li><a href="contact.php">contact</a></li>
+                        <li><a href="about.php"> about</a></li>
+                        <li><a href="contact.php"> contact</a></li>
                     </ul>
                 </li>
-                <li><a href="shop.php">shop</a></li>
-                <li><a href="orders.php">orders</a></li>
-                <li><a href="#">account +</a>
+                <li><a href="shop.php"> shop</a></li>
+                <li><a href="orders.php"> orders</a></li>
+                <li><a href="#"> account ▼</a>
                     <ul>
-                        <li><a href="login.php">login</a></li>
-                        <li><a href="register.php">register</a></li>
+                        <li><a href="login.php"> login</a></li>
+                        <li><a href="register.php"> register</a></li>
                     </ul>
                 </li>
             </ul>
@@ -54,8 +67,30 @@ if(isset($message)){
         </div>
 
         <div class="account-box">
+         
+        <?php
+         $select = mysqli_query($conn, "SELECT * FROM `users` WHERE id = '$user_id'") or die('query failed');
+         if(mysqli_num_rows($select) > 0){
+            $fetch = mysqli_fetch_assoc($select);
+         }
+        ?>
+
+        <?php
+            if($fetch['image'] == ''){
+               echo '<img src="images/default-avatar.png">';
+            }else{
+               echo '<img src="uploaded_img/'.$fetch['image'].'">';
+            }
+            if(isset($message)){
+               foreach($message as $message){
+                  echo '<div class="message">'.$message.'</div>';
+               }
+            }
+         ?>
+
             <p>username : <span><?php echo $_SESSION['user_name']; ?></span></p>
             <p>email : <span><?php echo $_SESSION['user_email']; ?></span></p>
+            <a href="update_profile.php" class="btn">update profile</a>
             <a href="logout.php" class="delete-btn">logout</a>
         </div>
 

@@ -17,12 +17,13 @@ if(isset($_POST['submit'])){
    if(mysqli_num_rows($select_users) > 0){
       
       $row = mysqli_fetch_assoc($select_users);
-
+      
       if($row['user_type'] == 'admin'){
-
+  
          $_SESSION['admin_name'] = $row['name'];
          $_SESSION['admin_email'] = $row['email'];
          $_SESSION['admin_id'] = $row['id'];
+         $_SESSION['last_login_timestamp'] = time();
          header('location:admin_page.php');
 
       }elseif($row['user_type'] == 'user'){
@@ -30,6 +31,7 @@ if(isset($_POST['submit'])){
          $_SESSION['user_name'] = $row['name'];
          $_SESSION['user_email'] = $row['email'];
          $_SESSION['user_id'] = $row['id'];
+         $_SESSION['last_login_timestamp'] = time();
          header('location:home.php');
 
       }else{
@@ -39,7 +41,6 @@ if(isset($_POST['submit'])){
    }else{
       $message[] = 'incorrect email or password!';
    }
-
 }
 
 ?>
@@ -50,6 +51,8 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+   <script src="jquery.js"></script>
    <title>login</title>
 
    <!-- font awesome cdn link  -->
@@ -77,14 +80,22 @@ if(isset($message)){
 <section class="form-container">
 
    <form action="" method="post">
-      <h3>💦 Mato's Water<h3>
+      <h3>💦 Mato's Water 💦<h3>
       <input type="email" name="email" class="box" placeholder="enter your email" required>
-      <input type="password" name="pass" class="box" placeholder="enter your password" required>
+      <input type="password" name="pass" class="box1" placeholder="enter your password" required>
       <input type="submit" class="btn" name="submit" value="login now">
       <p>don't have an account? <a href="register.php">register now</a></p>
    </form>
 
 </section>
+
+<div class="video-background">
+   
+      <video autoplay loop muted plays-inline class="back-video">
+         <source src="images/login-BGW.mp4" type="video/mp4">
+      </video>
+
+</div>
 
 </body>
 </html>
